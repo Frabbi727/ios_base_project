@@ -1,0 +1,13 @@
+{
+    "swift.path": "/usr/bin/swift",
+    "swift.buildArguments": [
+        "-Xswiftc", "-sdk", 
+        "-Xswiftc", "$(xcrun --show-sdk-path --sdk iphonesimulator)"
+    ],
+    "files.associations": {
+        "*.swift": "swift"
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "swift.sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp"
+}

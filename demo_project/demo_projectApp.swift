@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct demo_projectApp: App {
+    
+    init() {
+        setupDependencies()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+    }
+    
+    private func setupDependencies() {
+        DIContainer.shared.setupDependencies()
     }
 }

@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Open in Xcode",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}",
+            "preLaunchTask": "Open in Xcode",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Launch iOS Simulator",
+            "type": "node", 
+            "request": "launch",
+            "program": "${workspaceFolder}",
+            "preLaunchTask": "Launch iOS Simulator",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Build and Run iOS App",
+            "type": "node",
+            "request": "launch", 
+            "program": "${workspaceFolder}",
+            "preLaunchTask": "Build and Run iOS App",
+            "console": "integratedTerminal"
+        }
+    ]
+}
