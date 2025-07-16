@@ -3,6 +3,7 @@ import Combine
 
 protocol NetworkManagerProtocol {
     func request<T: Codable>(_ endpoint: String, method: String, parameters: [String: Any]?) -> AnyPublisher<T, NetworkError>
+    func request<T: Codable>(_ endpoint: String) -> AnyPublisher<T, NetworkError>
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -16,7 +17,7 @@ class NetworkManager: NetworkManagerProtocol {
         self.session = URLSession(configuration: config)
     }
     
-    func request<T: Codable>(_ endpoint: String, method: String = APIConstants.HTTPMethods.get, parameters: [String: Any]? = nil) -> AnyPublisher<T, NetworkError> {
+    func request<T: Codable>(_ endpoint: String, method: String, parameters: [String: Any]?) -> AnyPublisher<T, NetworkError> {
         
         guard let url = URL(string: APIConstants.baseURL + endpoint) else {
             return Fail(error: NetworkError.invalidURL)
@@ -59,5 +60,9 @@ class NetworkManager: NetworkManagerProtocol {
                 }
             }
             .eraseToAnyPublisher()
+    }
+    
+    func request<T: Codable>(_ endpoint: String) -> AnyPublisher<T, NetworkError> {
+        return request(endpoint, method: APIConstants.HTTPMethods.get, parameters: nil)
     }
 }
