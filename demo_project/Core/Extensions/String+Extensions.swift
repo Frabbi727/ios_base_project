@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 extension String {
     var isValidEmail: Bool {
